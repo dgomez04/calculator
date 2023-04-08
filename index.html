@@ -14,32 +14,44 @@
     </header>
 
     <div class="calculator">
-        <div class="screen">
-            <div id="storedNumber"></div>
+        <div class="display">
             <div id="currentNumber"></div>
         </div>
 
-        <div class="buttons">
-            <button type="button" data-key="all-clear"></button>
-            <button type="button" data-key="clear"></button>
-            <button type="button" data-key="sign"></button>
-            <button type="button" data-key="/"></button>
-            <button type="button" data-key="7"></button>
-            <button type="button" data-key="8"></button>
-            <button type="button" data-key="9"></button>
-            <button type="button" data-key="*"></button>
-            <button type="button" data-key="4"></button>
-            <button type="button" data-key="5"></button>
-            <button type="button" data-key="6"></button>
-            <button type="button" data-key="-"></button>
-            <button type="button" data-key="1"></button>
-            <button type="button" data-key="2"></button>
-            <button type="button" data-key="3"></button>
-            <button type="button" data-key="."></button>
-            <button type="button" data-key="0"></button>
-            <button type="button" data-key="="></button>
-            <!-- addition button takes two rows (out of five) -->
-            <button type="button" data-key="+" class="doubleHeight"></button>
+        <div id="buttonRow">
+            <div class="buttonColumn">
+                <button type="button" data-key="all-clear"></button>
+                <button type="button" data-key="7"></button>
+                <button type="button" data-key="4"></button>
+                <button type="button" data-key="1"></button>
+                <button type="button" data-key="."></button>
+
+            </div>
+
+            <div class="buttonColumn">
+                <button type="button" data-key="clear"></button>
+                <button type="button" data-key="8"></button>
+                <button type="button" data-key="5"></button>
+                <button type="button" data-key="2"></button>
+                <button type="button" data-key="0"></button>
+            </div>
+
+            <div class="buttonColumn">
+                <button type="button" data-key="sign"></button>
+                <button type="button" data-key="9"></button>
+                <button type="button" data-key="6"></button>
+                <button type="button" data-key="3"></button>
+                <button type="button" data-key="="></button>
+
+            </div>
+
+            <div class="buttonColumn">
+                <button type="button" data-key="/"></button>
+                <button type="button" data-key="*"></button>
+                <button type="button" data-key="-"></button>
+                <!-- addition button takes two rows (out of five) -->
+                <button type="button" data-key="+" class="doubleHeight"></button>
+            </div>
         </div>
 
     </div>

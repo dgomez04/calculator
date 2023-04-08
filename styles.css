@@ -4,4 +4,33 @@
     background-color: #333333;
     border-radius: 8px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.display {
+    margin: auto;
+    height: 100px;
+    width: 350px;
+    background-color: white;
+
+}
+
+
+.buttonColumn {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin-bottom: 30px;
+}
+
+button {
+    width: 80px;
+    height: 80px;
+}
+
+.doubleHeight {
+    height: 160px;
 }
