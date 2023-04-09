@@ -14,14 +14,15 @@ FOR EVENT LISTENER
 
 //DOM variables
 const buttonSelector = document.querySelectorAll(".buttonColumn > button");
-const currentNumber = document.querySelector("#currentNumber")
+const currentNumber = document.querySelector("#currentNumber");
 
 //array list to store operation
 const storedOperation = [];
 
 //adds eventListener to all buttons, returns key-value
 buttonSelector.forEach(button => button.addEventListener('click', () => {
-    addInput(button.dataset.key);
+    addInput(button.dataset.action, button.dataset.key);
+    storedOperation.push(button.dataset.key);
 }));
 
 // until another operator is added, do not add to list
@@ -30,22 +31,32 @@ buttonSelector.forEach(button => button.addEventListener('click', () => {
 //through data-action keys, decide what each key will do if it has a certain action, else just append as a number
 
 //operator, number (default), clear, all-clear, sign
-function addInput(action) {
+function addInput(action, key) {
 //use a switch to go through multiple cases
     switch(action) {
-        case operator:
+        case "operator":
             break;
 
-        case sign: 
+        case "sign": //find a way to improve this code.
+            if(currentNumber.textContent.includes("-")) {
+                currentNumber.textContent = currentNumber.textContent.slice(1);
+            } else {
+                currentNumber.textContent = `-${currentNumber.textContent}`;
+            }
+
             break;
 
-        case clear: 
+        case "clear": 
+            currentNumber.textContent = "";
             break;
             
-        case all-clear:
+        case "all-clear":
+            currentNumber.textContent = "";
+            storedOperation.length = 0;
             break;
 
         default:
+            currentNumber.textContent += key;
             break;
     }
 }
