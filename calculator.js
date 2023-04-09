@@ -11,4 +11,41 @@ FOR EVENT LISTENER
 - if a number is inserted after an equals, the previous operation should be deleted.
 */
 
-const buttonContainer = document.querySelector("#buttonContainer");
+
+//DOM variables
+const buttonSelector = document.querySelectorAll(".buttonColumn > button");
+const currentNumber = document.querySelector("#currentNumber")
+
+//array list to store operation
+const storedOperation = [];
+
+//adds eventListener to all buttons, returns key-value
+buttonSelector.forEach(button => button.addEventListener('click', () => {
+    addInput(button.dataset.key);
+}));
+
+// until another operator is added, do not add to list
+//if button is equals, solve the array and assign its result to the label.
+//on change sign, assign before the number a + or - sign using itinerary operator ? : 
+//through data-action keys, decide what each key will do if it has a certain action, else just append as a number
+
+//operator, number (default), clear, all-clear, sign
+function addInput(action) {
+//use a switch to go through multiple cases
+    switch(action) {
+        case operator:
+            break;
+
+        case sign: 
+            break;
+
+        case clear: 
+            break;
+            
+        case all-clear:
+            break;
+
+        default:
+            break;
+    }
+}
