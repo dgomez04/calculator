@@ -1,15 +1,3 @@
-/*
-1. add event listeners to all buttons, each button assigns its associated *data-key* action to the currentNumber label.
-    - the only operations which data-keys can not be directly translated to Strings are 'all-clear', 'clear', and 'sign'
-
-FOR EVENT LISTENER
-- every time a new data-key is inserted to currentNumber, the previous value should be sent to storedOperation array, 
-   if an equals sign is inserted, then calculate the operation and assign its value to currentNumber
-
-- operators should be directly displayed on storedNumber if there is a number stored in it, if there is no number, nothing should happen
-
-- if a number is inserted after an equals, the previous operation should be deleted.
-*/
 
 
 //DOM variables
@@ -22,19 +10,25 @@ const storedOperation = [];
 //adds eventListener to all buttons, returns key-value
 buttonSelector.forEach(button => button.addEventListener('click', () => {
     addInput(button.dataset.action, button.dataset.key);
-    storedOperation.push(button.dataset.key);
 }));
 
-// until another operator is added, do not add to list
-//if button is equals, solve the array and assign its result to the label.
-//on change sign, assign before the number a + or - sign using itinerary operator ? : 
-//through data-action keys, decide what each key will do if it has a certain action, else just append as a number
-
-//operator, number (default), clear, all-clear, sign
+//addInput function => does a different action depending on the buttons dataset action value;
 function addInput(action, key) {
-//use a switch to go through multiple cases
+    console.log(storedOperation);
     switch(action) {
         case "operator":
+            if(key === "=") {
+                storedOperation[2] = currentNumber.textContent;
+                currentNumber.textContent = solve(Number(storedOperation[0]), Number(storedOperation[2]), storedOperation[1]);
+                storedOperation.length = 0;
+            } else {
+                if (storedOperation[0] == undefined) {
+                    storedOperation.push(currentNumber.textContent)
+                }
+                currentNumber.textContent = " ";
+                storedOperation[1] = key;
+            }
+
             break;
 
         case "sign": //find a way to improve this code.
@@ -59,4 +53,18 @@ function addInput(action, key) {
             currentNumber.textContent += key;
             break;
     }
+}
+
+//returns solution
+function solve(firstNumber, secondNumber, operation) {
+    if(operation === "+") {
+        return firstNumber + secondNumber;
+    } else if(operation === "-") {
+        return firstNumber - secondNumber;
+    } else if(operation === "*") {
+        return firstNumber * secondNumber;
+    } else if (operation === "/"){
+        return firstNumber / secondNumber;
+    }
+
 }
