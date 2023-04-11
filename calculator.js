@@ -54,6 +54,9 @@ function addInput(action, key) {
             break;
 
         default:
+            if(currentNumber.textContent.includes(".") && key == ".") {
+                break;
+            } 
             currentNumber.textContent += key;
             currentOperation.textContent = storedOperation.join(" ");
             break;
