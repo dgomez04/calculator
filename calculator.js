@@ -13,7 +13,7 @@ window.addEventListener('keydown', (e) => {
     let key = e.key.toString();
     for(let i = 0; i < buttonSelector.length; i++) {
         if(key == buttonSelector[i].dataset.key) {
-            addInput(buttonSelector[i].dataset.action, buttonSelector[i].dataset.key);
+            buttonSelector[i].click();
         }
         
     }
