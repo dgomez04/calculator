@@ -3,6 +3,7 @@
 //DOM variables
 const buttonSelector = document.querySelectorAll(".buttonColumn > button");
 const currentNumber = document.querySelector("#currentNumber");
+const currentOpeartion = document.querySelector('#currentOperation')
 
 //array list to store operation
 const storedOperation = [];
@@ -19,6 +20,7 @@ function addInput(action, key) {
         case "operator":
             if(key === "=") {
                 storedOperation[2] = currentNumber.textContent;
+                currentOperation.textContent = storedOperation.join(" ");
                 currentNumber.textContent = solve(Number(storedOperation[0]), Number(storedOperation[2]), storedOperation[1]);
                 storedOperation.length = 0;
             } else {
@@ -27,6 +29,7 @@ function addInput(action, key) {
                 }
                 currentNumber.textContent = " ";
                 storedOperation[1] = key;
+                currentOperation.textContent = storedOperation.join(" ");
             }
 
             break;
@@ -46,11 +49,13 @@ function addInput(action, key) {
             
         case "all-clear":
             currentNumber.textContent = "";
+            currentOperation.textContent = "";
             storedOperation.length = 0;
             break;
 
         default:
             currentNumber.textContent += key;
+            currentOperation.textContent = storedOperation.join(" ");
             break;
     }
 }
