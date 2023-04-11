@@ -8,6 +8,19 @@ const currentOpeartion = document.querySelector('#currentOperation')
 //array list to store operation
 const storedOperation = [];
 
+//keydown eventListener, if key is pressed and matches any key then runs addInput() function (DOES NOT WORK FOR AC, C, & +/-)
+window.addEventListener('keydown', (e) => {
+    let key = e.key.toString();
+    for(let i = 0; i < buttonSelector.length; i++) {
+        if(key == buttonSelector[i].dataset.key) {
+            addInput(buttonSelector[i].dataset.action, buttonSelector[i].dataset.key);
+        }
+        
+    }
+        
+    
+});
+
 //adds eventListener to all buttons, returns key-value
 buttonSelector.forEach(button => button.addEventListener('click', () => {
     addInput(button.dataset.action, button.dataset.key);
